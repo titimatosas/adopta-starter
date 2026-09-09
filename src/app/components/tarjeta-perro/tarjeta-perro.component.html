@@ -1,7 +1,17 @@
-<!-- TODO: arma la tarjeta del perro.
-     Tienes todos sus datos en `perro`: nombre, raza, edad, foto, adoptado…
+<ion-card [routerLink]="['/detalle', perro.id]" button="true">
+  <ion-img [src]="perro.foto" [alt]="'Foto de ' + perro.nombre"></ion-img>
 
-     Varios caminos llevan a Roma: una opción es un ion-card con la foto y un
-     badge de estado (Adoptado / Disponible), pero puedes hacerlo a tu manera.
+  <ion-card-header>
+    <ion-card-title>{{ perro.nombre }}</ion-card-title>
+    <ion-badge [color]="perro.adoptado ? 'medium' : 'success'">
+      {{ perro.adoptado ? 'Adoptado' : 'Disponible' }}
+    </ion-badge>
+  </ion-card-header>
 
-     ¿Necesitas una referencia? Mira la galería de adopta-app. -->
+  <ion-card-content>
+    <ion-text>
+      <p>{{ perro.raza }} · {{ perro.edad }}</p>
+      <p>{{ perro.descripcion }}</p>
+    </ion-text>
+  </ion-card-content>
+</ion-card>

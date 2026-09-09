@@ -56,13 +56,14 @@ export class PerrosService {
   ];
 
   todas(): Perro[] {
-    return [];
+    return this.perros;
   }
 
   obtener(id: string): Perro | undefined {
-    return undefined;
+    return this.perros.find(perro => perro.id === parseInt(id, 10));
   }
 
   agregar(perro: Perro): void {
+    this.perros.push(perro);
   }
 }

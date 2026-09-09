@@ -1,8 +1,22 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
     <ion-title>Detalle</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  @if (perro) {
+    <ion-img [src]="perro.foto" [alt]="'Foto de ' + perro.nombre"></ion-img>
+    <h1>{{ perro.nombre }}</h1>
+    <p>{{ perro.raza }} · {{ perro.edad }} · {{ perro.tamano }}</p>
+    <p>{{ perro.sexo }}</p>
+    <p>{{ perro.descripcion }}</p>
+    <p>{{ perro.vacunada ? 'Vacunado' : 'No vacunado' }}</p>
+    <p>{{ perro.adoptado ? 'Ya fue adoptado' : 'Disponible para adopción' }}</p>
+  } @else {
+    <p>No encontramos este perro.</p>
+  }
 </ion-content>

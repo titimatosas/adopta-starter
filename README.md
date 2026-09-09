@@ -28,17 +28,14 @@ Cada `Perro` tiene: `id`, `nombre`, `tipo`, `raza`, `edad`, `sexo`, `tamano`,
 
 ## 👉 Tu tarea
 
-Tres piezas por construir. Cada una dice **qué** debe lograr; el **cómo** te toca
-investigarlo (documentación de Ionic/Angular y lo visto en clase).
+Tres piezas por construir. Cada una dice **qué** debe lograr; el **cómo** te toca investigarlo (documentación de Ionic/Angular y lo visto en clase).
 
 ### 1. El servicio — `services/perros.service.ts`
-Los datos y la interface `Perro` ya están. Faltan los **cuerpos de los métodos**:
-uno entrega todos los perros, otro busca uno por su `id` y otro agrega uno nuevo.
+Los datos y la interface `Perro` ya están. Faltan los **cuerpos de los métodos**: uno entrega todos los perros, otro busca uno por su `id` y otro agrega uno nuevo.
 Hazlos funcionar.
 
 ### 2. La tarjeta — `components/tarjeta-perro/`
-Un componente que recibe un perro y **muestra su información**. Decide tú cómo se
-ve y qué componentes de Ionic usar.
+Un componente que recibe un perro y **muestra su información**. Decide tú cómo se ve y qué componentes de Ionic usar.
 
 ### 3. Las 3 páginas — `pages/`
 Cada una trae el esqueleto mínimo (`ion-header` + `ion-content` vacío). Dales
@@ -47,6 +44,8 @@ contenido:
 - **Galería** (`pages/galeria`) — muestra **todos** los perros.
 - **Detalle** (`pages/detalle`) — muestra **un** perro según la ruta.
 - **Nuevo perrito** (`pages/nuevo`) — un **formulario** para registrar un perro.
+
+### 4. Página de login y de registrarse
 
 ## 💡 Para investigar
 

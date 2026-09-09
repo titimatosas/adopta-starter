@@ -1,1 +1,20 @@
-/* TODO: estilos de la tarjeta del perro (agrégalos a medida que la armes). */
+ion-card {
+	height: 100%;
+	margin: 0;
+}
+
+ion-img {
+	aspect-ratio: 1;
+	object-fit: cover;
+}
+
+ion-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+ion-card-content p {
+	margin: 0 0 0.5rem;
+}

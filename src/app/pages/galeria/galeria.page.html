@@ -5,4 +5,13 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      @for (perro of perros; track perro.id) {
+        <ion-col size="12" size-md="6" size-lg="4">
+          <app-tarjeta-perro [perro]="perro"></app-tarjeta-perro>
+        </ion-col>
+      }
+    </ion-row>
+  </ion-grid>
 </ion-content>
