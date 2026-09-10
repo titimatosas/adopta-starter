@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {
   IonBackButton,
+  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
@@ -18,6 +19,7 @@ import { Perro, PerrosService } from '../../services/perros.service';
   standalone: true,
   imports: [
     IonBackButton,
+    IonButton,
     IonButtons,
     IonContent,
     IonHeader,
@@ -37,6 +39,12 @@ export class DetallePage {
 
     if (id) {
       this.perro = this.perrosService.obtener(id);
+    }
+  }
+
+  adoptar(): void {
+    if (this.perro && !this.perro.adoptado) {
+      this.perro.adoptado = true;
     }
   }
 }

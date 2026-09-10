@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   IonCol,
   IonContent,
   IonGrid,
   IonHeader,
+  IonLabel,
   IonRow,
+  IonSegment,
+  IonSegmentButton,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
@@ -17,11 +22,15 @@ import { Perro, PerrosService } from '../../services/perros.service';
   styleUrls: ['galeria.page.scss'],
   standalone: true,
   imports: [
+    FormsModule,
     IonCol,
-    IonContent,
     IonGrid,
     IonHeader,
+    IonContent,
+    IonLabel,
     IonRow,
+    IonSegment,
+    IonSegmentButton,
     IonTitle,
     IonToolbar,
     TarjetaPerroComponent,
@@ -29,8 +38,16 @@ import { Perro, PerrosService } from '../../services/perros.service';
 })
 export class GaleriaPage {
   perros: Perro[];
+  filtro = 'todos';
 
-  constructor(private perrosService: PerrosService) {
+  constructor(
+    private perrosService: PerrosService,
+    private router: Router,
+  ) {
     this.perros = this.perrosService.todas();
+  }
+
+  irANuevo(): void {
+    this.router.navigate(['/nuevo']);
   }
 }

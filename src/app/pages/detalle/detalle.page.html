@@ -16,7 +16,11 @@
     <p>{{ perro.descripcion }}</p>
     <p>{{ perro.vacunada ? 'Vacunado' : 'No vacunado' }}</p>
     <p>{{ perro.adoptado ? 'Ya fue adoptado' : 'Disponible para adopción' }}</p>
+    <ion-button expand="block" (click)="adoptar()" [disabled]="perro.adoptado">
+      {{ perro.adoptado ? 'Ya adoptado' : 'Adoptar' }}
+    </ion-button>
   } @else {
     <p>No encontramos este perro.</p>
   }
+
 </ion-content>

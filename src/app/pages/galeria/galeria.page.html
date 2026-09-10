@@ -1,6 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Galería</ion-title>
+    <ion-title>Adopta!</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="filtro">
+      <ion-segment-button value="todos">
+        <ion-label>Galería</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="nuevo" (click)="irANuevo()">
+        <ion-label>Registra un perro!</ion-label>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 

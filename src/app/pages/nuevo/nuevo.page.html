@@ -1,8 +1,75 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
     <ion-title>Nuevo perrito</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <form #formulario="ngForm" (ngSubmit)="guardar()">
+    <ion-list>
+      <ion-item>
+        <ion-input
+          label="Nombre"
+          labelPlacement="stacked"
+          name="nombre"
+          [(ngModel)]="nombre"
+          required
+          placeholder="Ej. Rocky"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Edad"
+          labelPlacement="stacked"
+          name="edad"
+          [(ngModel)]="edad"
+          required
+          placeholder="Ej. 2 años"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Raza"
+          labelPlacement="stacked"
+          name="raza"
+          [(ngModel)]="raza"
+          required
+          placeholder="Ej. Labrador"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea
+          label="Características"
+          labelPlacement="stacked"
+          name="descripcion"
+          [(ngModel)]="descripcion"
+          required
+          autoGrow="true"
+          placeholder="Describe su personalidad, hábitos y necesidades"
+        ></ion-textarea>
+      </ion-item>
+
+            <ion-item>
+        <ion-textarea
+          label="Foto"
+          labelPlacement="stacked"
+          name="Foto"
+          [(ngModel)]="foto"
+          required
+          autoGrow="true"
+          placeholder="Ingresa la URL de la foto del perro"
+        ></ion-textarea>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" [disabled]="formulario.invalid">
+      Registrar perro
+    </ion-button>
+  </form>
 </ion-content>
