@@ -9,18 +9,62 @@
 
 <ion-content class="ion-padding">
   @if (perro) {
-    <ion-img [src]="perro.foto" [alt]="'Foto de ' + perro.nombre"></ion-img>
-    <h1>{{ perro.nombre }}</h1>
-    <p>{{ perro.raza }} · {{ perro.edad }} · {{ perro.tamano }}</p>
-    <p>{{ perro.sexo }}</p>
-    <p>{{ perro.descripcion }}</p>
-    <p>{{ perro.vacunada ? 'Vacunado' : 'No vacunado' }}</p>
-    <p>{{ perro.adoptado ? 'Ya fue adoptado' : 'Disponible para adopción' }}</p>
-    <ion-button expand="block" (click)="adoptar()" [disabled]="perro.adoptado">
-      {{ perro.adoptado ? 'Ya adoptado' : 'Adoptar' }}
-    </ion-button>
+    @if (!editando) {
+      <ion-img [src]="perro.foto" [alt]="'Foto de ' + perro.nombre"></ion-img>
+      <h1>{{ perro.nombre }}</h1>
+      <p>{{ perro.raza }} · {{ perro.edad }} · {{ perro.tamano }}</p>
+      <p>{{ perro.sexo }}</p>
+      <p>{{ perro.descripcion }}</p>
+      <p>{{ perro.vacunada ? 'Vacunado' : 'No vacunado' }}</p>
+      <p>{{ perro.adoptado ? 'Ya fue adoptado' : 'Disponible para adopción' }}</p>
+      <ion-button expand="block" (click)="adoptar()" [disabled]="perro.adoptado">
+        {{ perro.adoptado ? 'Ya adoptado' : 'Adoptar' }}
+      </ion-button>
+      <ion-button expand="block" color="primary" (click)="iniciarEdicion()">
+        Editar
+      </ion-button>
+      <ion-button expand="block" color="danger" fill="outline" (click)="confirmarEliminacion()">
+        Eliminar
+      </ion-button>
+    } @else {
+      <ion-list>
+        <ion-item>
+          <ion-input label="Nombre" labelPlacement="stacked" [(ngModel)]="perro.nombre" name="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Raza" labelPlacement="stacked" [(ngModel)]="perro.raza" name="raza"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Edad" labelPlacement="stacked" [(ngModel)]="perro.edad" name="edad"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Sexo" labelPlacement="stacked" [(ngModel)]="perro.sexo" name="sexo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Tamaño" labelPlacement="stacked" [(ngModel)]="perro.tamano" name="tamano"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input label="Foto" labelPlacement="stacked" [(ngModel)]="perro.foto" name="foto"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea label="Descripción" labelPlacement="stacked" [(ngModel)]="perro.descripcion" name="descripcion"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-toggle [(ngModel)]="perro.vacunada" name="vacunada">Vacunada</ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-toggle [(ngModel)]="perro.adoptado" name="adoptado">Adoptado</ion-toggle>
+        </ion-item>
+      </ion-list>
+
+      <ion-button expand="block" (click)="guardarCambios()">
+        Guardar cambios
+      </ion-button>
+      <ion-button expand="block" fill="clear" color="medium" (click)="cancelarEdicion()">
+        Cancelar
+      </ion-button>
+    }
   } @else {
     <p>No encontramos este perro.</p>
   }
-
 </ion-content>

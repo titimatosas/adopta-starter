@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="auth-container">
+    <h1>Regístrate</h1>
+    <p>Crea una cuenta para entrar a Adopta!</p>
+
+    <form #formulario="ngForm" (ngSubmit)="registrar()">
+      <ion-list>
+        <ion-item>
+          <ion-input
+            label="Correo"
+            labelPlacement="stacked"
+            name="correo"
+            type="email"
+            [(ngModel)]="correo"
+            required
+            autocomplete="email"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Clave"
+            labelPlacement="stacked"
+            name="clave"
+            type="password"
+            [(ngModel)]="clave"
+            required
+            autocomplete="new-password"
+          ></ion-input>
+        </ion-item>
+      </ion-list>
+
+      @if (error) {
+        <ion-text color="danger"><p class="error">{{ error }}</p></ion-text>
+      }
+
+      <ion-button expand="block" type="submit" [disabled]="formulario.invalid">
+        Registrarme
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

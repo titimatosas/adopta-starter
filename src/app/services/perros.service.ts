@@ -66,4 +66,16 @@ export class PerrosService {
   agregar(perro: Perro): void {
     this.perros.push(perro);
   }
+
+  actualizar(perroActualizado: Perro): void {
+    const index = this.perros.findIndex(perro => perro.id === perroActualizado.id);
+
+    if (index !== -1) {
+      this.perros[index] = perroActualizado;
+    }
+  }
+
+  eliminar(id: number): void {
+    this.perros = this.perros.filter(perro => perro.id !== id);
+  }
 }
